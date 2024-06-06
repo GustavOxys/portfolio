@@ -1,0 +1,7 @@
+Cria uma random Secret Key
+
+Excluir aspas ('', "") da secret key para evitar transtornos
+
+basta digitar o comando :
+
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
