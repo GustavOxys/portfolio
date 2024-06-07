@@ -1,0 +1,39 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Olá,  <span>Gustavo</span> aq</h1>
+            <h3 class="text-animation">Programador Backend<span></
+            span></h3>
+            <p>Como programador backend, meu foco principal é garantir que os sistemas que desenvolvo sejam robustos,
+                eficientes e seguros.</p>
+            <br>
+                
+            <p>Sou especializado em criar softwares com uma estrutura sólida e código limpo,
+                priorizando a funcionalidade e desempenho.</p>  
+            <br>
+            <p>Meu objetivo é desenvolver soluções tecnológicas que atendam
+                às necessidades dos usuários de forma confiável e escalável.</p>
+                
+
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                <a href="#"><i class='bx bxl-github' ></i></a>
+                <a href="#"><i class='bx bxl-instagram' ></i></a>
+            </div>
+
+            <div class="btn-group">
+                <a href="#contact" class="btn">Contato</a>
+                <a href="#hire" class="btn">Contrate-me</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="{% static 'global/hasb_resized.jpg' %}" alt="foto">
+        </div>
+        
+    </section>
+{% endblock %}
+    

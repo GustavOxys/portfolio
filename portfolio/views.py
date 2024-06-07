@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.views import View
+from django.views.generic import ListView
+from .models import Habilidade
 
-class Index(View):
-    def get(self, request):
-        # Retorna uma resposta HTTP com um conteúdo simples
-        return HttpResponse("Olá, mundo!")
+class Index(ListView):
+    template_name = 'portfolio/index.html'
+    queryset = Habilidade
