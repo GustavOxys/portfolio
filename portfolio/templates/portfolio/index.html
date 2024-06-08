@@ -3,12 +3,13 @@
 
 
 {% block content %}
-    <section class="home" id="home">
+    <section class="sobre" id="sobre">
         <div class="home-content">
-            <h1>Olá,  <span>Gustavo</span> aq</h1>
-            <h3 class="text-animation">Programador Backend<span></
-            span></h3>
-            <p>Como programador backend, meu foco principal é garantir que os sistemas que desenvolvo sejam robustos,
+            <h1>Olá,  <span>Gustavo</span> aqui</h1>
+            <h3 class="text-animation"><span></span></h3>
+
+            <p>Como programador backend, meu foco principal é garantir que os sistemas que 
+                desenvolvo sejam robustos,
                 eficientes e seguros.</p>
             <br>
                 
@@ -31,9 +32,63 @@
             </div>
         </div>
         <div class="home-img">
-            <img src="{% static 'global/hasb_resized.jpg' %}" alt="foto">
+            <img src="{% static 'global/gus.png' %}" alt="foto">
         </div>
         
+    </section>
+
+    <section class="Habilidades" id="habilidades">
+        <h2 class="heading">Habilidades</h2>
+
+        <div class="habilidades-container">
+            <div class="habilidade-box">
+                <div class="habilidade-info">
+                    
+                    <h4>Frontend</h4>
+                    <p>Eu adquiri minhas habilidades em Desenvolvimento Frontend principalmente através
+                        de cursos básicos e muita prática. Isso veio da necessidade de complementar meus
+                        projetos de backend com uma base sólida em Frontend.
+
+                        Percebi que entender o Frontend era essencial para criar interfaces
+                        de usuário funcionais.Dediquei tempo para aprender HTML,
+                        CSS e o básico de JavaScript
+                        para aprimorar minhas habilidades.
+
+                        "Se quiser saber mais sobre minha experiência e habilidades,
+                         sinta-se à vontade para visitar meu currículo completo aqui."
+                    </p>
+                    <div>
+                        <i class='bx bxl-html5'></i>
+                        <i class='bx bxl-css3' ></i>
+                        <i class='bx bxl-javascript' ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="habilidade-box">
+                <div class="habilidade-info">
+                    
+                    <h4>Backend</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Quidem, voluptatibus
+                        ex officiis inventore velit consequuntur
+                        optio sequi obcaecati. Officiis et earum
+                        eius recusandae, illo enim tempore
+                        distinctio dicta nulla. Suscipit?Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Quidem, voluptatibus
+                        ex officiis inventore velit consequuntur
+                        optio sequi obcaecati. Officiis et earum
+                        e</p>
+                    <div>
+                        <i class='bx bxl-django' ></i>
+                        <i class='bx bxl-python'></i>
+                        <i class='bx bxl-postgresql' ></i>
+                        <i class='bx bxl-git'></i>
+                        <i class='bx bxl-google-cloud'></i>
+                        <i class='bx bxl-docker'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}
     

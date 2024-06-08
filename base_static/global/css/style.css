@@ -71,7 +71,7 @@ section{
     min-height: 100vh;
     padding: 10rem 12% 10rem;
 }
-.home{
+.sobre{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,14 +110,14 @@ span{
     top: 3rem;
     width: 28vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px var(--main-color);
+    box-shadow: 0 0 25px var(--second-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
 .home-img img:hover{
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var(--main-color),
-                0 0 100px var(--main-color);
+    box-shadow: 0 0 25px var(--second-color),
+                0 0 50px var(--second-color),
+                0 0 100px var(--second-color);
 }
 .home-content p{
     font-size:  1.5rem;
@@ -173,27 +173,141 @@ span{
     border: 2px solid var(--main-color);
     box-shadow: 0 0 25px transparent;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-group a:nth-of-type(2):hover{
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+    color: black;
+}
 .text-animation{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+}
+.text-animation span{
+    position: relative;
+}
+.text-animation span::before{
+    content: "Programador Backend";
     color: var(--second-color);
+    animation: words 12s infinite;
+}
+.text-animation span::after{
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor{
+    to{
+        border-left: 2px solid var(--second-color);
+    }
+}
+@keyframes words {
+    0%, 33% {
+        content: "Programador Backend";
+    }
+    34%, 67% {
+        content: "Especialista em Django";
+    }
+    68%, 100% {
+        content: "Desenvolvedor Web";
+    }
+}
+
+@keyframes typing{
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95%{
+        width: 0;
+    }
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,    
+    85%{
+        width: calc(100% + 8px);
+    }
+}
+
+
+.heading{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+
+
+.habilidades{
+    background: var(--bg-color);
+    color: black;
+}
+.habilidades h2{
+    margin-bottom: 5rem;
+    color: white;
+}
+.habilidades-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: 2rem;
+}
+.habilidade-box{
+    background-color: var(--main-color);
+    color: black;
+    height: 400px;    
+    border-radius: 3rem;
+    border: 5px solid transparent;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+.habilidade-box:hover{
+    background: white;
+    color: black;
+    border: 5px solid var(--main-color);
+    transform: scale(1.03);
+}
+.habilidade-box .habilidade-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-height: 200px;
+    justify-content: left;
+    align-items: center;
+    padding: 5rem 5rem;
+}
+
+
+.habilidade-info h4{
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 2;
+    margin-top: 0;
+}
+.habilidade-info i{
+    font-size: 50px;
+    margin-top: 14rem;
+    
+}    
+.habilidade-info p{
+    font-size: 1.6rem;
+    font-weight: 600;
+    max-height: 100px;
+    line-height: 1.7;
+    margin: auto;
 }
