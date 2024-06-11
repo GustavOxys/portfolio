@@ -12,7 +12,7 @@ def resize_image_to_square(image_path, new_size=800, optimize=True, quality=60, 
 
     # Determina o caminho para salvar a nova imagem
     if output_path is None:
-        output_path = image_path.parent / (image_path.stem + "_resized.jpg")
+        output_path = image_path.parent / (image_path.stem + f"_resized{new_size}.png")
     else:
         output_path = Path(output_path)
 
@@ -61,6 +61,6 @@ def resize_and_crop_image(image_path, new_size=(800, 800), optimize=True, qualit
 
     return cropped_image
 
-imagem = 'base_static/global/hasb.jpg'
-resize_image_to_square(imagem, new_size=800)
+imagem = 'base_static/global/blog-front.png'
+resize_image_to_square(imagem, new_size=400)
 resize_and_crop_image(imagem)
