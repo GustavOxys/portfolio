@@ -61,6 +61,5 @@ def resize_and_crop_image(image_path, new_size=(800, 800), optimize=True, qualit
 
     return cropped_image
 
-imagem = 'base_static/global/blog-front.png'
+imagem = 'base_static/global/blog.png'
 resize_image_to_square(imagem, new_size=400)
-resize_and_crop_image(imagem)
