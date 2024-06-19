@@ -12,7 +12,7 @@
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: white;
-    --main-color: rgb(255, 255, 0);
+    --main-color: rgba(255, 251, 0, 0.89);
     --second-color: #00ffee;
 }
 html{
@@ -50,6 +50,7 @@ body{
     text-shadow: 0 0 25px var(--main-color);
 }
 .navbar a{
+   
     font-size: 1.8rem;
     color: var(--text-color);
     margin-left: 4rem;
@@ -109,7 +110,7 @@ span{
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 28vw;
+    width: 25vw;
     border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
@@ -263,11 +264,11 @@ span{
     margin-bottom: 5rem;
     color: white;
 }
-.habilidades-container{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    align-items: center;
-    gap: 2rem;
+.habilidades-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 2rem; 
 }
 
 
@@ -337,7 +338,7 @@ span{
 .project-box {
     background-color: var(--second-bg-color);
     display: flex;
-    height: 450px; 
+    height: auto; 
     border-radius: 10px;
     margin-bottom: 100px; 
     
@@ -345,10 +346,8 @@ span{
 
 
 .box-column-img, .box-column-text{
-    width: 50%;
+    width: 100%;
     height: 450px;
-    justify-content: space-around;
-    
 }
 .box-column-img{
     text-align: center;
@@ -373,10 +372,7 @@ span{
 .icons-habilidades{
     position: absolute;
     bottom: 0;
-    
     margin-bottom: 8px;
-    
-    
 }
 .icon-habilidade{
     font-size: 35px;
@@ -476,3 +472,104 @@ span{
     font-size: 16px;
     color: white;
 }
+.navbar-mobile{
+    display: none;
+}
+
+
+@media(max-width:1285){
+   html{
+    font-size: 55%;
+   }
+}
+
+@media(max-width:991px){
+    header{
+        padding: 2rem 3%;
+    }
+    section{
+        padding: 10rem 3% 2rem;
+    }
+    .timeline-items::before{
+        left: 7px;
+    }
+    .timeline-item:nth-child(odd){
+        padding-left: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even){
+        padding-left: 37px;
+    }
+    .timeline-dot{
+        left: 0;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+
+@media(max-width:895px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0,0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
+    }
+    .navbar.active{
+        display: block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
+    }
+    .sobre{
+        flex-direction: column-reverse;
+        margin: 5rem 4rem;
+    }
+    .home-content{
+        align-items: center;
+        text-align: center;
+    }
+    .home-content h3{
+        font-size: 2.6rem;
+        align-self: center;
+    }
+    .home-content h1{
+        font-size: 8rem;
+        margin-top: 3rem;
+    }
+    .home-content p{
+        max-width: 600px;
+        margin: 0 auto;
+        align-self: center;
+    }
+    .home-img img{
+        width: 30vw;
+    }
+    .project-box {
+        display: block;
+    }
+    .box-column-text{
+        text-align: center;
+        align-items: center;
+        align-self: center;
+    }
+    .icons-habilidades{
+        width: 100%;
+        align-items: center;
+    }
+}
+
