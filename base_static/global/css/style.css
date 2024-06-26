@@ -63,10 +63,15 @@ body{
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
+.navbar__mobile{
+    display: none;
+}
+
 #menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
     display: none;
+    cursor: pointer;
 }
 section{
     min-height: 100vh;
@@ -474,9 +479,7 @@ span{
     font-size: 16px;
     color: white;
 }
-.navbar-mobile{
-    display: none;
-}
+
 
 
 
@@ -623,7 +626,7 @@ span{
         position: absolute;
         top: 100%;
         right: 0;
-        width: 50%;
+        width: 35%;
         padding: 1rem 3%;
         background: rgba(0,0, 0, 0.8);
         backdrop-filter: blur(20px);
