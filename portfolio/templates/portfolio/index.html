@@ -12,11 +12,11 @@
             <p>Como desenvolvedor backend, meu objetivo primordial é assegurar que
             os sistemas que desenvolvo sejam robustos, eficientes e seguros,
             além de atenderem às necessidades dos usuários de forma confiável e escalável.</p>
-            <p>Quer saber mais <a class="ver-mais" href="#">Sobre mim</a>?</p>
+            <p>Quer saber mais Sobre mim?</p>
 
             <div class="social-icons">
-                <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                <a href="#"><i class='bx bxl-github' ></i></a>
+                <a href="https://www.linkedin.com/in/gustavo-henrique-zollner-munhoz-6a8ab22b5/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/GustavOxys" target="_blank"><i class='bx bxl-github' ></i></a>
                 
             </div>
 
@@ -31,67 +31,17 @@
     <section class="habilidades" id="habilidades">
         <h2 class="heading">Habilidades</h2>
         <div class="habilidades-container">
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-python'></i>
-                    <h4>Python</h4>
-                </div>
-            </div>
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-django'></i>
-                    <h4>Django</h4>
-                </div>
-            </div>
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-postgresql' ></i>
-                    <h4>Postgresql</h4>
-                </div>
-            </div>
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-docker'></i>
-                    <h4>Docker</h4>
-                </div>
-            </div>            
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-git'></i>
-                    <h4>Git e Github</h4>
-                </div>
-            </div>
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bx-test-tube' ></i>
-                    <h4>TDD Testing</h4>
-                </div>
-            </div>
-            <div class="habilidade-box">
-                <div class="habilidade-info">
-                    <i class='bx bxl-google-cloud'></i>
-                    <h4>Google Cloud</h4>
-                </div>
-            </div>
-            <div class="habilidade-box ">
-                <div class="habilidade-info">
-                    <i class='bx bxl-html5'></i>
-                    <h4>HTML</h4>
-                </div>
-            </div>
-            <div class="habilidade-box ">
-                <div class="habilidade-info">
-                    <i class='bx bxl-css3' ></i>
-                    <h4>CSS</h4>
-                </div>
-            </div>
-            <div class="habilidade-box ">
-                <div class="habilidade-info">
-                    <i class='bx bxl-javascript' ></i>
-                    <h4>Javascript</h4>
-                </div>
-            </div>
-            
+
+            {% for skill in skills %}
+                <a href="{% url 'portfolio:skill_detail' slug=skill.slug %}" target="_blank">
+                    <div class="habilidade-box">
+                        <div class="habilidade-info">
+                            <i class='{{ skill.icon_class }}'></i>
+                            <h4>{{ skill.name }}</h4>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
             
         </div>
     </section>
@@ -171,7 +121,7 @@
             </div>
             <div class="project-box">
                 <div class="box-column-img">
-                    <img class="image-project" src="{% static 'global/blog-front_resized400.png' %}" alt="foto">
+                    <img class="image-project" src="{% static 'global/media/blog-front_resized400.png' %}" alt="foto">
                     <div class="btn-group2">
                         <a class="btn2" href="#" class="">Visitar Site</a>
                         <a class="btn2" href="#" class="">Repositório</a>

@@ -35,21 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Conjuntos de cores
     const originalColors = {
-      '--bg-color': '#ffffff',
-        '--bg-color-opacity': 'ff0000',
+        '--bg-color': '#f1f1f1',
         '--second-bg-color': '#f0f0f0',
         '--text-color': '#000000',
-        '--main-color': '#54993e',
-        '--second-color': '#007bff'
+        '--main-color': '#2c4dbb',
+        
     };
   
     const newColors = {
-      '--bg-color': '#080808',
-      '--bg-color-opacity': 'rgba(0, 0, 0, 0.3)',
-      '--second-bg-color': '#131313',
-      '--text-color': 'white',
-      '--main-color': 'rgba(255, 251, 0, 0.89)',
-      '--second-color': '#00ffee'
+        '--bg-color': '#080808',
+        '--second-bg-color': '#131313',
+        '--text-color': 'white',
+        '--main-color': 'rgba(255, 251, 0, 0.89)',
+      
     };
     
   
