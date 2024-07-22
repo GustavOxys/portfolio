@@ -24,3 +24,12 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Project(models.Model):
+    name = models.CharField(max_length=25)
+    img = models.ImageField()
+    text = models.TextField(max_length=470)
+    skills = models.ManyToManyField(Skill, blank=True)
+    deploy = models.URLField(max_length=300)
+    repository = models.URLField(max_length=300)

@@ -48,6 +48,34 @@
     <section class="projects" id="projetos">
         <h2 class="heading">Projetos</h2>
         <div class="project-container">
+            
+            {% for project in projects  %}
+                <div class="project-box">
+                    <div class="box-column-img">
+                        <img class="image-project" src="{{ project.img.url }}" alt="foto">
+                        <div class="btn-group2">
+                            <a class="btn2" href="{{project.deploy}}" class="" target="_blank">Visitar Site</a>
+                            <a class="btn2" href="{{project.repository}}" class="" target="_blank">Repositório</a>
+                        </div>
+                    </div>
+
+                    <div class="box-column-text">
+                        <h3>{{project.name}}</h3>
+                        {{project.text|linebreaks}}
+                        <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="#">clique aqui</a></p>
+
+                        <div class="icons-habilidades">
+                            {% for icon in project.skill_icons %}
+                                <i class="{{ icon }} icon-habilidade"></i>
+                            {% endfor %}
+                        </div>
+                        
+                        
+                        
+                    </div>
+                </div>
+            {% endfor %}
+                
             <div class="project-box">
                 <div class="box-column-img">
                     <img class="image-project" src="{% static 'global/media/consultorio-front_resized400.png' %}" alt="foto">

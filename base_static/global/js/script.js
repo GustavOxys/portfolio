@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Conjuntos de cores
     const originalColors = {
         '--bg-color': '#f1f1f1',
-        '--second-bg-color': '#f0f0f0',
+        '--second-bg-color': '#c7c7c7',
         '--text-color': '#000000',
         '--main-color': '#2c4dbb',
         
