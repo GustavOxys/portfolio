@@ -1,14 +1,43 @@
-
+{% extends 'global/base_skill.html' %}
+{% load static %}
 
 {% block content %}
-    <h1><i class="{{ skill.icon_class }}"></i> {{ skill.name }}</h1>
-    <p>{{ skill.description }}</p>
-    <h2>Projects</h2>
-    <ul>
-        {% for project in projects %}
-            <li>{{ project.name }}</li>
-        {% empty %}
-            <li>No projects found.</li>
+
+<section class="skill-detail" id="skill-detail">
+    <div class="skill-detail-container">
+        <h1>{{ skill.name }}</h1>
+        <p>{{ skill.description|linebreaks }} </p>
+        <p><a href="{{skill.link}}" target="_blank">Mais informações estão disponíveis aqui</a></p>
+        <p>Confira abaixo projetos onde utilizei {{ skill.name }}</p>
+        
+    </div>
+</section>
+
+<section class="projects" id="projetos">
+    <h2 class="heading">Projetos com {{ skill.name }} </h2>
+    <div class="project-container">
+        {% for project in projects  %}
+            <div class="project-box">
+                <div class="box-column-img">
+                    <img class="image-project" src="{{ project.image.url }}" alt="foto">
+                    <div class="btn-group2">
+                        <a class="btn2" href="{{project.deploy}}" class="" target="_blank">Visitar Site</a>
+                        <a class="btn2" href="{{project.repository}}" class="" target="_blank">Repositório</a>
+                    </div>
+                </div>
+
+                <div class="box-column-text">
+                    <h3>{{project.name}}</h3>
+                    {{project.text|linebreaks}}
+                    <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="#">clique aqui</a></p>
+                    <div class="icons-habilidades">
+                        {% for icon in project.skill_icons %}
+                            <i class="{{ icon }} icon-habilidade"></i>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
+</section>
 {% endblock %}

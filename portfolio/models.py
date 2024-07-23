@@ -19,6 +19,7 @@ class Skill(models.Model):
     slug = models.SlugField(max_length=12, unique=True)
     description = models.TextField(blank=True)
     icon_class = models.CharField(max_length=100, blank=True)
+    link = models.URLField(null=True, blank=True, max_length=400)
 
     def save(self, *args, **kwargs):
         if not self.slug:

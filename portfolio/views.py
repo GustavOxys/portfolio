@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Skill
 from django.shortcuts import render, get_object_or_404
 from .models import Skill, Project
@@ -17,8 +17,14 @@ class Index(ListView):
         return context
 
 
-def skill_detail(request, slug):
-    skill = get_object_or_404(Skill, slug=slug)
-     
-    return render(request, 'portfolio/skill_detail.html', {'skill': skill,})
 
+
+class SkillDetailView(DetailView):
+    model = Skill
+    template_name = 'portfolio/skill_detail.html'
+    context_object_name = 'skill'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = Project.objects.filter(skills=self.object)
+        return context
