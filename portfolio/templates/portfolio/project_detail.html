@@ -1,0 +1,19 @@
+{% extends 'global/base_skill.html' %}
+{% load static %}
+
+{% block content %}
+<section class="project-detail" id="project-detail">
+    <div class="project-detail-container">
+        <h1>{{ project.name }}</h1>
+        {{project.about_intro}}
+        <div>
+            <img src="{{ project.image2.url }}" alt="" />
+            {{project.about_detail}}
+        </div>
+        <div>
+            {{project.about_conclusion}}
+            <img src="{{ project.image3.url }}" alt="{{ project.name }} - Imagem 3" />
+        </div>
+    </div>
+</section>
+{% endblock %}

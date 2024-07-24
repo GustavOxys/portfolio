@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skill, Project
+from .models import Skill, Project, About
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
@@ -10,3 +10,6 @@ class SkillAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('name', )
 
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('first_name', )

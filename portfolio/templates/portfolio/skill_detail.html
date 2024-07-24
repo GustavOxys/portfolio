@@ -28,8 +28,8 @@
 
                 <div class="box-column-text">
                     <h3>{{project.name}}</h3>
-                    {{project.text|linebreaks}}
-                    <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="#">clique aqui</a></p>
+                    {{project.resume|linebreaks}}
+                    <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="{% url 'portfolio:project_detail' project.name %}">clique aqui</a></p>
                     <div class="icons-habilidades">
                         {% for icon in project.skill_icons %}
                             <i class="{{ icon }} icon-habilidade"></i>

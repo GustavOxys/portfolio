@@ -11,7 +11,7 @@
 
 :root {
     --bg-color: #f1f1f1;    
-    --second-bg-color: #c7c7c7;
+    --second-bg-color: #d8d8d8;
     --text-color: #000000;
     --main-color: #2c4dbb;
 }
@@ -785,6 +785,36 @@ span{
 }
 
 .skill-detail-container p{
+    font-size: 18px;
+    line-height: 1.6; 
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+.project-detail{
+    display: flex;
+    flex-direction: column;   
+        
+    margin-top: 5rem;
+    
+}
+
+.project-detail-container{
+    display:block;
+    height: 100%;
+    width: 100%;
+    background-color: var(--second-bg-color);
+    border-radius: 2rem;
+}
+
+.project-detail-container h1{
+    margin-top: 10px;
+    width: 100%;
+    font-size: 5rem;    
+    text-align: center;
+}
+
+.project-detail-container p{
     font-size: 18px;
     line-height: 1.6; 
     margin-bottom: 1rem;

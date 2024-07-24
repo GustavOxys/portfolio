@@ -28,3 +28,11 @@ class SkillDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['projects'] = Project.objects.filter(skills=self.object)
         return context
+    
+
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'portfolio/project_detail.html'
+    context_object_name = 'project'
+    slug_field = 'name'
+    slug_url_kwarg = 'name'
