@@ -11,9 +11,6 @@ class About(models.Model):
     last_name = models.CharField(max_length=20)
     date_of_birth = models.DateField()
     about = models.TextField()
-    
-
-   
 
 
 class Skill(models.Model):
@@ -43,15 +40,12 @@ class Project(models.Model):
     readme = models.URLField(max_length=200, blank=True)
 
     def save(self, *args, **kwargs):
-        if self.pk:
-            # Se o objeto já existir, verifique a imagem antiga
+        if self.pk:            
             old_instance = Project.objects.get(pk=self.pk)
-            if old_instance.image and old_instance.image != self.image:
-                # Remove a imagem antiga se for diferente da nova
+            if old_instance.image and old_instance.image != self.image:                
                 old_instance.image.delete(save=False)
 
-        if self.image and hasattr(self.image, 'file'):
-            # Processa a imagem e calcula o hash
+        if self.image and hasattr(self.image, 'file'):            
             new_image_hash = self.calculate_image_hash(self.image)
             if self.image_hash != new_image_hash:
                 self.image = self.process_image(self.image, new_size=400)
@@ -63,22 +57,18 @@ class Project(models.Model):
         image_file = image_field.file
         image_pillow = Image.open(image_file)
         new_image = self.resize_image(image_pillow, new_size=new_size)
-
-        # Salva a imagem redimensionada
+        
         image_io = BytesIO()
         new_image.save(image_io, format='PNG', quality=60)
         image_file = ContentFile(image_io.getvalue(), name=image_field.name)
-
-        # Atualiza o campo image com a nova imagem
+        
         image_field.save(image_field.name, image_file, save=False)
         return image_field
 
     def resize_image(self, image_pillow, new_size):
-        # Redimensiona a imagem para um quadrado
         return image_pillow.resize((new_size, new_size), Image.LANCZOS)
 
     def calculate_image_hash(self, image_field):
-        # Calcula o hash MD5 da imagem
         image_file = image_field.file
         image_file.seek(0)
         hash_md5 = hashlib.md5()

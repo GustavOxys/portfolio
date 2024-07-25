@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Conjuntos de cores
     const originalColors = {
         '--bg-color': '#f1f1f1',
-        '--second-bg-color': '#c7c7c7',
+        '--second-bg-color': '#d8d8d8',
         '--text-color': '#000000',
         '--main-color': '#2c4dbb',
         

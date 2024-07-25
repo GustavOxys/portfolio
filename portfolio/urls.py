@@ -9,7 +9,4 @@ app_name = 'portfolio'
 urlpatterns = [
     path('', Index.as_view(), name='index'),
     path('skills/<slug:slug>/', SkillDetailView.as_view(), name='skill_detail'),
-    path('project/<str:name>/', ProjectDetailView.as_view(), name='project_detail'),
-
-
     ]

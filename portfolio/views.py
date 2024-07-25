@@ -25,8 +25,6 @@ class Index(ListView):
         return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
 
 
-
-
 class SkillDetailView(DetailView):
     model = Skill
     template_name = 'portfolio/skill_detail.html'

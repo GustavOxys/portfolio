@@ -1,0 +1,72 @@
+.heading{
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+.habilidades{
+    background: var(--second-bg-color);
+    
+}
+.habilidades h2{
+    margin-bottom: 5rem;
+    color: var(--text-color);
+}
+.habilidades-container {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 2rem; 
+}
+
+.main-color{
+    color: var(--main-color);
+}
+
+.habilidade-box .habilidade-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-height: 200px;
+    justify-content: left;
+    align-items: center;
+    
+}
+.habilidade-box{
+    
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    height: 21rem;   
+    width: 21rem; 
+    border-radius: 3rem;
+    border: 5px solid var(--bg-color);
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+
+.habilidade-info h4{
+    font-size: 25px;
+    font-weight: 800;
+}
+.habilidade-info i{
+    font-size: 80px;
+    color: var(--main-color);
+}    
+
+.habilidade-info p{
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: auto;
+    text-align: center;
+}
+.habilidade-box:hover{
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--main-color);
+}
+.habilidade-box:hover i{
+    color: var(--text-color);
+}
