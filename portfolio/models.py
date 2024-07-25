@@ -3,14 +3,15 @@ from django.utils.text import slugify
 from PIL import Image
 from io import BytesIO
 from django.core.files.base import ContentFile
+import hashlib
 
 class About(models.Model):
     first_name = models.CharField(max_length=10)
     image = models.ImageField(upload_to='profile/%Y/%m/%d/')
     last_name = models.CharField(max_length=20)
-    birth = models.DateField()
+    date_of_birth = models.DateField()
     about = models.TextField()
-    age = models.IntegerField()
+    
 
    
 
@@ -34,23 +35,27 @@ class Skill(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='projects/%Y/%m/%d/')
-    image2 = models.ImageField(blank=True, null=True, upload_to='projects/%Y/%m/%d/')
-    image3 = models.ImageField(blank=True, null=True, upload_to='projects/%Y/%m/%d/')
-    resume = models.TextField(max_length=470)
-    about_intro = models.TextField(blank=True, null=True)
-    about_detail = models.TextField(blank=True, null=True)
-    about_conclusion = models.TextField(blank=True, null=True)
+    image_hash = models.CharField(max_length=64, blank=True, editable=False)    
+    resume = models.TextField(max_length=470)    
     skills = models.ManyToManyField(Skill, blank=True)
     deploy = models.URLField(max_length=300, blank=True)
     repository = models.URLField(max_length=300, blank=True)
+    readme = models.URLField(max_length=200, blank=True)
 
     def save(self, *args, **kwargs):
+        if self.pk:
+            # Se o objeto já existir, verifique a imagem antiga
+            old_instance = Project.objects.get(pk=self.pk)
+            if old_instance.image and old_instance.image != self.image:
+                # Remove a imagem antiga se for diferente da nova
+                old_instance.image.delete(save=False)
+
         if self.image and hasattr(self.image, 'file'):
-            self.image = self.process_image(self.image, new_size=400)
-        if self.image2 and hasattr(self.image2, 'file'):
-            self.image2 = self.process_image(self.image2, new_size=600)  
-        if self.image3 and hasattr(self.image3, 'file'):
-            self.image3 = self.process_image(self.image3, new_size=600)  
+            # Processa a imagem e calcula o hash
+            new_image_hash = self.calculate_image_hash(self.image)
+            if self.image_hash != new_image_hash:
+                self.image = self.process_image(self.image, new_size=400)
+                self.image_hash = new_image_hash
 
         super().save(*args, **kwargs)
 
@@ -63,13 +68,23 @@ class Project(models.Model):
         image_io = BytesIO()
         new_image.save(image_io, format='PNG', quality=60)
         image_file = ContentFile(image_io.getvalue(), name=image_field.name)
-        
+
+        # Atualiza o campo image com a nova imagem
         image_field.save(image_field.name, image_file, save=False)
         return image_field
 
     def resize_image(self, image_pillow, new_size):
         # Redimensiona a imagem para um quadrado
         return image_pillow.resize((new_size, new_size), Image.LANCZOS)
+
+    def calculate_image_hash(self, image_field):
+        # Calcula o hash MD5 da imagem
+        image_file = image_field.file
+        image_file.seek(0)
+        hash_md5 = hashlib.md5()
+        for chunk in iter(lambda: image_file.read(4096), b""):
+            hash_md5.update(chunk)
+        return hash_md5.hexdigest()
     
     def __str__(self):
         return self.name

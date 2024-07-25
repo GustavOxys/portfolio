@@ -1,5 +1,7 @@
 {% extends 'global/base.html' %}
 {% load static %}
+{% load custom_filters %}
+
 
 
 {% block content %}
@@ -7,12 +9,8 @@
         <div class="home-content">
             <h1>Olá,  <span>Gustavo</span> aqui</h1>
             <h3 class="text-animation"><span></span></h3>
-            <p>Tenho 27 anos de idade, dei início à minha jornada na programação em 2022.</p>
-            <p>Meu foco é desenvolver projetos estimulantes enquanto melhoro minhas habilidades.</p>
-            <p>Como desenvolvedor backend, meu objetivo primordial é assegurar que
-            os sistemas que desenvolvo sejam robustos, eficientes e seguros,
-            além de atenderem às necessidades dos usuários de forma confiável e escalável.</p>
-            <p>Quer saber mais Sobre mim?</p>
+            <p>{{ about.about|linebreaks|replace_age:age|safe }}</p>
+            
 
             <div class="social-icons">
                 <a href="https://www.linkedin.com/in/gustavo-henrique-zollner-munhoz-6a8ab22b5/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
@@ -23,7 +21,7 @@
             
         </div>
         <div class="home-img">
-            <img src="{% static 'global/media/gus.png' %}" alt="foto">
+            <img src="{{ about.image.url }}" alt="foto">
         </div>
         
     </section>
@@ -61,11 +59,13 @@
                     <div class="box-column-text">
                         <h3>{{project.name}}</h3>
                         {{project.resume|linebreaks}}
-                        <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="{% url 'portfolio:project_detail' project.name %}">clique aqui</a></p>
+                        <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="{{ project.readme }}" target="_blank">clique aqui</a></p>
                         <div class="icons-habilidades">
-                            {% for icon in project.skill_icons %}
+                            {% for icon, skill in project.skill_icons %}
+                            <a href="{% url 'portfolio:skill_detail' slug=skill.slug %}" target="_blank">
                                 <i class="{{ icon }} icon-habilidade"></i>
-                            {% endfor %}
+                            </a>
+                        {% endfor %}
                         </div>
                     </div>
                 </div>

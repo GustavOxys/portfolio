@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from .models import Skill
 from django.shortcuts import render, get_object_or_404
-from .models import Skill, Project
+from .models import Skill, Project, About
+from datetime import date
 
 class Index(ListView):
     model = Project
@@ -12,9 +13,16 @@ class Index(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['skills'] = Skill.objects.all()
+        about = About.objects.first()
+        context['about'] = about
+        context['age'] = self.calculate_age(about.date_of_birth)
         for project in context['projects']:
-            project.skill_icons = [skill.icon_class for skill in project.skills.all()]
+            project.skill_icons = [(skill.icon_class, skill) for skill in project.skills.all()]
         return context
+    
+    def calculate_age(self, birth_date):
+        today = date.today()
+        return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
 
 
 

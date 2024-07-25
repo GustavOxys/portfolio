@@ -773,7 +773,7 @@ span{
     display:block;
     height: 100%;
     width: 100%;
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
     border-radius: 2rem;
 }
 
@@ -803,15 +803,14 @@ span{
     display:block;
     height: 100%;
     width: 100%;
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
     border-radius: 2rem;
 }
 
-.project-detail-container h1{
-    margin-top: 10px;
-    width: 100%;
+.project-detail-container h2{
+    margin-top: 5rem;    
     font-size: 5rem;    
-    text-align: center;
+    
 }
 
 .project-detail-container p{
@@ -819,4 +818,20 @@ span{
     line-height: 1.6; 
     margin-bottom: 1rem;
     padding: 10px;
+}
+
+.project-detail-one{
+    display: flex;
+}
+
+.project-detail-one p{
+    margin-right: 10rem;
+}
+
+.project-detail-two{
+    display: flex;
+}
+
+.project-detail-two p{
+    margin-left: 10rem;
 }
