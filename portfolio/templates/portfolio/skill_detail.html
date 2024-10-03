@@ -7,7 +7,7 @@
     <div class="skill-detail-container">
         <h1>{{ skill.name }}</h1>
         <p>{{ skill.description|linebreaks }} </p>
-        <p><a href="{{skill.link}}" target="_blank">Mais informações estão disponíveis aqui</a></p>
+        <p><a href="{{skill.link}}" class="ver-mais" target="_blank">Mais informações estão disponíveis aqui</a></p>
         <p>Confira abaixo projetos onde utilizei {{ skill.name }}</p>
         
     </div>
@@ -29,7 +29,7 @@
                 <div class="box-column-text">
                     <h3>{{project.name}}</h3>
                     {{project.resume|linebreaks}}
-                    <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="{% url 'portfolio:project_detail' project.name %}">clique aqui</a></p>
+                    <p>Se quiser saber mais sobre o projeto <a class="ver-mais" href="{{ project.readme }}">clique aqui</a></p>
                     <div class="icons-habilidades">
                         {% for icon in project.skill_icons %}
                             <i class="{{ icon }} icon-habilidade"></i>
